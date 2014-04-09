@@ -1,15 +1,15 @@
 package package1;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.By;
+
 import org.testng.annotations.Test;
 
-public class TwitterTest {
+public class TwitterTest extends BrowserHelper {
 	@Test
 
-	public void verifySearch() {
-	WebDriver driver = new FirefoxDriver();
-	driver.get("http://www.twitter.com/");
-	driver.quit();
+	public void verifySearch() throws InterruptedException {
+		driver.findElement(By.xpath("//table[@summary='Profile stats']/thead/tr/th[1]")).click();
+		Thread.sleep(5000);
+		
 	}
 }

@@ -3,10 +3,30 @@
 <suite name="twitter" verbose="1">
 
   
+       <test name="one">
+              <classes>
+                     <class name="package1.Follow" />
+              </classes> 
+        </test>       
        <test name="two">         
                <classes>     
-                     <class name="package1.TwitterTest" />
-                </classes> 
+                     <class name="package1.Notifications" />
+                     </classes> 
          </test>              
-
+         <test name="three">             
+                 <classes>     
+                     <class name="package1.TwitterTest" />
+                     </classes>
+          </test>              
+          <test name="four">            
+                  <classes>    
+                     <class name="package1.Discovery" />
+                     </classes>
+           </test>            
+           <test name="five">            
+                   <classes>   
+                     <class name="package1.Profile" />
+                     </classes>  
+              
+       </test>
 </suite>

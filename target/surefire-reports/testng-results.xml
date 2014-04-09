@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="twitter" duration-ms="10504" started-at="2014-04-09T05:32:39Z" finished-at="2014-04-09T05:32:50Z">
+    <groups>
+    </groups>
+    <test name="two" duration-ms="10504" started-at="2014-04-09T05:32:39Z" finished-at="2014-04-09T05:32:50Z">
+      <class name="package1.TwitterTest">
+        <test-method status="PASS" signature="verifySearch()[pri:0, instance:package1.TwitterTest@2985158]" name="verifySearch" duration-ms="10493" started-at="2014-04-09T11:02:39Z" finished-at="2014-04-09T11:02:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySearch -->
+      </class> <!-- package1.TwitterTest -->
+    </test> <!-- two -->
+  </suite> <!-- twitter -->
+</testng-results>

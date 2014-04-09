@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="twitter" verbose="1">
+
+  
+       <test name="two">         
+               <classes>     
+                     <class name="package1.TwitterTest" />
+                </classes> 
+         </test>              
+
+</suite>

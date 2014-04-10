@@ -1,7 +1,6 @@
 package package1;
 
 //import org.apache.log4j.PropertyConfigurator;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +17,7 @@ import org.testng.annotations.BeforeTest;
 
 public class BrowserHelper {
 
-  public WebDriver driver = new FirefoxDriver();
+  WebDriver driver = new FirefoxDriver();
   String pagetitle = "Twitter";
   public String baseurl = "http://twitter.com/";
   
@@ -31,12 +30,13 @@ public class BrowserHelper {
   public void setup() {
 	  
 	  driver.get(baseurl);
+	  driver.manage().window().maximize();
 	  String title = driver.getTitle();
 	  Assert.assertEquals(pagetitle, title);
 	  driver.findElement(By.xpath("//input[@id='signin-email']")).sendKeys("gopi.ror@live.com");
 	  driver.findElement(By.xpath("//input[@id='signin-password']")).sendKeys("(kodanda&rama");
 	  driver.findElement(By.xpath("//button[contains(@class, 'submit btn primary-btn')]")).click();
-	  driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+
 	  
   }
 

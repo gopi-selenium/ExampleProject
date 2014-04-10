@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="twitter" verbose="1">
-
-  
-       <test name="one">
-              <classes>
-                     <class name="package1.Follow" />
-              </classes> 
-        </test>       
-       <test name="two">         
+  <listeners>
+    <listener class-name="package1.CustomListener" />
+  </listeners>
+    <test name="Notifications">         
                <classes>     
                      <class name="package1.Notifications" />
                      </classes> 
          </test>              
-         <test name="three">             
+         <test name="TwitterTest">             
                  <classes>     
                      <class name="package1.TwitterTest" />
                      </classes>
           </test>              
-          <test name="four">            
+          <test name="Discovery">            
                   <classes>    
                      <class name="package1.Discovery" />
                      </classes>
-           </test>            
-           <test name="five">            
+           </test>     
+           <test name="Profile">            
                    <classes>   
                      <class name="package1.Profile" />
                      </classes>  
               
-       </test>
+       </test> 
+              <test name="Follow">
+              <classes>
+                     <class name="package1.Follow" />
+              </classes> 
+        </test> 
 </suite>

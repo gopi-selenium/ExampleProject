@@ -11,7 +11,7 @@
                      </classes> 
          </test>              
          <test name="TwitterTest"> 
-         <parameter name="browser" value="ie"/>             
+         <parameter name="browser" value="chrome"/>             
                  <classes>     
                      <class name="package1.TwitterTest" />
                      </classes>
@@ -28,7 +28,6 @@
               
        </test> 
               <test name="Follow">
-              <parameter name="browser" value="safari"/>
               <classes>
                      <class name="package1.Follow" />
               </classes> 

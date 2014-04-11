@@ -38,6 +38,7 @@ public class BrowserHelper {
   @BeforeMethod
   public void setup(String browser) {
 	  if (browser.equalsIgnoreCase("chrome")) {
+	  System.setProperty("webdriver.chrome.driver","/home/sarma/Downloads/chromedriver"); 		  
 	  driver = new ChromeDriver();
 	  } else if (browser.equalsIgnoreCase("safari")){
 		  driver = new SafariDriver();  

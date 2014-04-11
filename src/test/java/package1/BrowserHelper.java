@@ -6,10 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Parameters;
 //import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
@@ -30,10 +34,17 @@ public class BrowserHelper {
 	  
           return driver;
   }
-  
+  @Parameters("browser")
   @BeforeMethod
-  public void setup() {
-	  driver = new FirefoxDriver();
+  public void setup(String browser) {
+	  if (browser.equalsIgnoreCase("chrome")) {
+	  driver = new ChromeDriver();
+	  } else if (browser.equalsIgnoreCase("safari")){
+		  driver = new SafariDriver();  
+	  } else if (browser.equalsIgnoreCase("ie")) {
+		  driver = new InternetExplorerDriver();
+	  } else { driver = new FirefoxDriver();  }
+	  
 	  driver.get(baseurl);
 	  driver.manage().window().maximize();
 	  String title = driver.getTitle();

@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 
@@ -29,7 +31,8 @@ public class BrowserHelper {
   public String baseurl = "http://twitter.com/";
   
   private static WebDriver driver = null;
-
+  protected static DesiredCapabilities dCaps;
+  
   public WebDriver getDriver() {
 	  
           return driver;
@@ -44,6 +47,13 @@ public class BrowserHelper {
 		  driver = new SafariDriver();  
 	  } else if (browser.equalsIgnoreCase("ie")) {
 		  driver = new InternetExplorerDriver();
+	  } else if (browser.equalsIgnoreCase("phantomjs")) {
+		  dCaps = new DesiredCapabilities();
+		  dCaps.setJavascriptEnabled(true);
+		  dCaps.setCapability("takesScreenshot", false);
+		  
+		  driver = new PhantomJSDriver(dCaps);	
+		  
 	  } else { driver = new FirefoxDriver();  }
 	  
 	  driver.get(baseurl);
@@ -53,7 +63,6 @@ public class BrowserHelper {
 	  driver.findElement(By.xpath("//input[@id='signin-email']")).sendKeys("gopi.ror@live.com");
 	  driver.findElement(By.xpath("//input[@id='signin-password']")).sendKeys("(kodanda&rama");
 	  driver.findElement(By.xpath("//button[contains(@class, 'submit btn primary-btn')]")).click();
-//	  return driver;
   }
 
   @AfterMethod

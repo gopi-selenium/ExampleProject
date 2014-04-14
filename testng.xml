@@ -11,7 +11,7 @@
                      </classes> 
          </test>              
          <test name="TwitterTest"> 
-         <parameter name="browser" value="chrome"/>             
+         <parameter name="browser" value="phantomjs"/>             
                  <classes>     
                      <class name="package1.TwitterTest" />
                      </classes>

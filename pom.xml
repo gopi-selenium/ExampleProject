@@ -48,6 +48,11 @@
            <version>1.4</version>
            <scope>test</scope>
   </dependency>
+  <dependency>
+    <groupId>com.github.detro.ghostdriver</groupId>
+    <artifactId>phantomjsdriver</artifactId>
+    <version>1.0.1</version>
+</dependency>
 	
  </dependencies>
  <build>

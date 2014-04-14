@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
+//import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
@@ -44,15 +45,23 @@ public class BrowserHelper {
 	  System.setProperty("webdriver.chrome.driver","/home/sarma/Downloads/chromedriver"); 		  
 	  driver = new ChromeDriver();
 	  } else if (browser.equalsIgnoreCase("safari")){
-		  driver = new SafariDriver();  
+		 
+		  dCaps = new DesiredCapabilities();
+		  dCaps.setJavascriptEnabled(true);
+		  dCaps.setCapability("takesScreenshot", true);
+		  
+		  //driver = new SafariDriver();
+		  driver = new PhantomJSDriver(dCaps);
 	  } else if (browser.equalsIgnoreCase("ie")) {
 		  driver = new InternetExplorerDriver();
 	  } else if (browser.equalsIgnoreCase("phantomjs")) {
+		  
+		  
 		  dCaps = new DesiredCapabilities();
 		  dCaps.setJavascriptEnabled(true);
 		  dCaps.setCapability("takesScreenshot", false);
-		  
-		  driver = new PhantomJSDriver(dCaps);	
+		  System.setProperty("phantomjs.binary.path","/home/sarma/Downloads/phantomjs-1.9.7-linux-x86_64/bin/phantomjs");
+		  driver = new PhantomJSDriver(dCaps);
 		  
 	  } else { driver = new FirefoxDriver();  }
 	  

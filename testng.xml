@@ -15,22 +15,22 @@
                  <classes>     
                      <class name="package1.TwitterTest" />
                      </classes>
-          </test>              
+          </test>           
           <test name="Discovery">   
-          <parameter name="browser" value="chrome"/>          
+          <parameter name="browser" value="IE"/>          
                   <classes>    
                      <class name="package1.Discovery" />
                      </classes>
-           </test>     
+           </test>        
            <test name="Profile">     
-           <parameter name="browser" value="firefox"/>        
+           <parameter name="browser" value="chrome"/>        
                    <classes>   
                      <class name="package1.Profile" />
                      </classes>  
               
        </test> 
               <test name="Follow">
-              <parameter name="browser" value="firefox"/> 
+              <parameter name="browser" value="IE"/> 
               <classes>
                      <class name="package1.Follow" />
               </classes> 

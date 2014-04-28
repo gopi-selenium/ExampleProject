@@ -46,14 +46,18 @@ public class BrowserHelper {
   @Parameters("browser")
   @BeforeMethod
   public void setup(String browser) throws MalformedURLException {
-
+	  URL hubUrl = new URL("http://50.50.50.183:4444/wd/hub");
+	  
 	  if (browser.equalsIgnoreCase("chrome")) {
-		  System.setProperty("webdriver.chrome.driver","/home/sarma/Downloads/chromedriver"); 		  
-		  driver = new ChromeDriver();
+		  //System.setProperty("webdriver.chrome.driver","/home/sarma/Downloads/chromedriver"); 		  
+		  //driver = new ChromeDriver();
+		  dCaps = new DesiredCapabilities();
+		  dCaps.setJavascriptEnabled(true);
+		  dCaps.setBrowserName("chrome");
+		  dCaps.setCapability("takesScreenshot", true);
+		  driver = new RemoteWebDriver(hubUrl, dCaps);
 		  
 	  } else if (browser.equalsIgnoreCase("IE")){
-		  URL hubUrl = new URL("http://50.50.50.183:4444/wd/hub");
-		  
 		  dCaps = new DesiredCapabilities();
 		  dCaps.setJavascriptEnabled(true);
 		  dCaps.setBrowserName("iexplore");

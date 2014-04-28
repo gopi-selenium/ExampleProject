@@ -43,7 +43,7 @@ public class CustomListener extends TestListenerAdapter{
         }
 
         Reporter.setEscapeHtml(false);
-        //String screenPath = "<a href=../../reports/screenshots/" + filename + ">Screenshot</a>";
+        //String screenPath = "<a href=../reports/screenshots/" + filename + ">Screenshot</a>";
         String screenPath = "<a href=../ws/reports/screenshots/" + filename + ">Screenshot</a>";
         Reporter.log(screenPath);  
         

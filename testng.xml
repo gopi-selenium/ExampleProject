@@ -35,4 +35,10 @@
                      <class name="package1.Follow" />
               </classes> 
         </test> 
+<!--          <test name="gmail_login"> 
+    		        
+               <classes>     
+                     <class name="package1.CheckXpaths" />
+               </classes> 
+         </test>  -->
 </suite>

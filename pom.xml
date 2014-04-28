@@ -14,29 +14,29 @@
  
   
   <dependencies>
-	<dependency>
-		<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>2.41.0</version>
-	</dependency>
-
-	<dependency>
-		<groupId>org.seleniumhq.selenium</groupId>
-		<artifactId>selenium-server</artifactId>
-		<version>2.41.0</version>
-	</dependency>
-	<dependency>
-	<groupId>org.seleniumhq.selenium</groupId>
-	<artifactId>selenium-remote-driver</artifactId>
-	<version>2.41.0</version>
+<dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-java</artifactId>
+<version>2.41.0</version>
 </dependency>
-	
-	<dependency>
-		<groupId>org.testng</groupId>
-		<artifactId>testng</artifactId>
-		<version>6.8.5</version>
-	</dependency>
-	<dependency>
+
+<dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-server</artifactId>
+<version>2.41.0</version>
+</dependency>
+<dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-remote-driver</artifactId>
+<version>2.41.0</version>
+</dependency>
+
+<dependency>
+<groupId>org.testng</groupId>
+<artifactId>testng</artifactId>
+<version>6.8.5</version>
+</dependency>
+<dependency>
              <groupId>com.google.inject</groupId>
              <artifactId>guice</artifactId>
              <version>3.0</version>
@@ -62,7 +62,7 @@
  </dependencies>
  <build>
  <plugins>
-    	<plugin>
+     <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.16</version>
@@ -71,10 +71,14 @@
                     <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
                 </systemPropertyVariables>
                    <properties>
+                   <property>
+                  <name>listener</name>
+                  <value>sample.sampleTest.BaseHTMLReporter</value>
+                  </property>
                             
                   <property>
                  <name>usedefaultlisteners</name>
-                 <value>true</value>
+                 <value>false</value>
                 </property>
                 <property>
                 <name>listener</name>
@@ -83,55 +87,9 @@
            </properties>
                      <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
-                        <!-- <suiteXmlFile>target/surefire-reports/testng-failed.xml</suiteXmlFile> -->
                     </suiteXmlFiles>
                 </configuration>
-                        <executions> 
-         <execution> 
-         <configuration>
-         <suiteXmlFiles>
-         <suiteXmlFile>target/surefire-reports/testng-failed.xml</suiteXmlFile></suiteXmlFiles>
-         </configuration></execution></executions>
             </plugin>
-            
- <!--   <plugin> 
-        <groupId>org.apache.maven.plugins</groupId> 
-        <artifactId>maven-surefire-plugin</artifactId> 
-         <executions> 
-         <execution> 
-         <configuration> 
-          <suiteXmlFiles> 
-            <suiteXmlFile>testng.xml</suiteXmlFile> 
-          </suiteXmlFiles> 
-          <properties> 
-                <property> 
-                <name>listener</name> 
-					<value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value> 
-                        </property> 
-                  </properties> 
-        </configuration> 
-                </execution> 
-                 <execution> 
-          <id>failed-rerun</id> 
-          <configuration> 
-          <suiteXmlFiles> 
-            <suiteXmlFile>${basedir}/target/surefire-reports/testng-failed.xml</suiteXmlFile> 
-          </suiteXmlFiles> 
-          <properties> 
-                <property> 
-                <name>listener</name> 
-					<value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value> 
-                        </property> 
-                  </properties> 
-          <surefireReportDirectory>${basedir}/output</surefireReportDirectory>
-         </configuration> 
-                </execution> 
-       </executions> 
-      </plugin>     -->      
-            
-            
-            
-            
       <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
@@ -141,8 +99,8 @@
         </configuration>
       </plugin>
       
- </plugins> 
+ </plugins>
  
  
-    	</build>
+     </build>
 </project> 

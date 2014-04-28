@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 
@@ -34,7 +35,7 @@ public class BrowserHelper {
   WebDriver driver;
   String pagetitle = "Twitter";
   public String baseurl = "http://twitter.com/";
-  
+
   
 
   protected static DesiredCapabilities dCaps;
@@ -51,18 +52,18 @@ public class BrowserHelper {
 	  if (browser.equalsIgnoreCase("chrome")) {
 		  //System.setProperty("webdriver.chrome.driver","/home/sarma/Downloads/chromedriver"); 		  
 		  //driver = new ChromeDriver();
-		  dCaps = new DesiredCapabilities();
-		  dCaps.setJavascriptEnabled(true);
-		  dCaps.setBrowserName("chrome");
-		  dCaps.setCapability("takesScreenshot", true);
-		  driver = new RemoteWebDriver(hubUrl, dCaps);
+		  DesiredCapabilities c = DesiredCapabilities.chrome();
+
+		  c.setBrowserName("chrome");
+		  c.setPlatform(Platform.LINUX);
+		  driver = new RemoteWebDriver(hubUrl, c);
 		  
 	  } else if (browser.equalsIgnoreCase("IE")){
-		  dCaps = new DesiredCapabilities();
-		  dCaps.setJavascriptEnabled(true);
-		  dCaps.setBrowserName("iexplore");
-		  dCaps.setCapability("takesScreenshot", true);
-		  driver = new RemoteWebDriver(hubUrl, dCaps);
+	      DesiredCapabilities capabilities = new DesiredCapabilities();
+	      capabilities.setBrowserName("internet explorer");
+	      capabilities.setPlatform(Platform.WINDOWS);
+
+	      driver = new RemoteWebDriver(hubUrl, capabilities);
 	  
 	  } else if (browser.equalsIgnoreCase("phantomjs")) {
 		  dCaps = new DesiredCapabilities();
@@ -85,11 +86,14 @@ public class BrowserHelper {
 	  }
 	  
   @AfterMethod
-  public void teardown() {
+  public void teardown() throws InterruptedException {
 	  if (driver != null)
       {
               try
               {
+      Thread.sleep(5000);      	  
+      driver.findElement(By.id("user-dropdown-toggle")).click();
+      driver.findElement(By.xpath("//li[@id='signout-button']/button[contains(@class,'dropdown-link')]"));
 	  driver.quit();
               }
               catch (WebDriverException e) {

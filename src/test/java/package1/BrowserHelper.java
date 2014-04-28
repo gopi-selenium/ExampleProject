@@ -92,7 +92,8 @@ public class BrowserHelper {
               try
               {
       Thread.sleep(5000);      	  
-      driver.findElement(By.id("user-dropdown-toggle")).click();
+      driver.findElement(By.xpath("//a[@id='user-dropdown-toggle']")).click();
+      Thread.sleep(2000);  
       driver.findElement(By.xpath("//li[@id='signout-button']/button[contains(@class,'dropdown-link')]"));
 	  driver.quit();
               }

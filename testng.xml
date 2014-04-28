@@ -5,7 +5,7 @@
     <listener class-name="package1.CustomListener" />
   </listeners>
     <test name="Notifications"> 
-    <parameter name="browser" value="chrome"/>        
+    <parameter name="browser" value="IE"/>        
                <classes>     
                      <class name="package1.Notifications" />
                      </classes> 
@@ -23,7 +23,7 @@
                      </classes>
            </test>     
            <test name="Profile">     
-           <parameter name="browser" value="firefox"/>        
+           <parameter name="browser" value="IE"/>        
                    <classes>   
                      <class name="package1.Profile" />
                      </classes>  

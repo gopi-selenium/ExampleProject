@@ -78,7 +78,7 @@
                             
                   <property>
                  <name>usedefaultlisteners</name>
-                 <value>false</value>
+                 <value>true</value>
                 </property>
                 <property>
                 <name>listener</name>

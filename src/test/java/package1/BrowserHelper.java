@@ -31,48 +31,45 @@ import org.testng.annotations.BeforeMethod;
 
 public class BrowserHelper {
 
-  //WebDriver driver = new FirefoxDriver();
+  WebDriver driver;
   String pagetitle = "Twitter";
   public String baseurl = "http://twitter.com/";
   
   
-  private static WebDriver driver = null;
+
   protected static DesiredCapabilities dCaps;
   
   public WebDriver getDriver() {
-	  
+	 
           return driver;
   }
   @Parameters("browser")
-  //@BeforeMethod
+  @BeforeMethod
   public void setup(String browser) throws MalformedURLException {
-	  URL hubUrl = new URL("http://50.50.50.183:4444/wd/hub");
-	  
+
 	  if (browser.equalsIgnoreCase("chrome")) {
-	  System.setProperty("webdriver.chrome.driver","/home/sarma/Downloads/chromedriver"); 		  
-	  driver = new ChromeDriver();
+		  System.setProperty("webdriver.chrome.driver","/home/sarma/Downloads/chromedriver"); 		  
+		  driver = new ChromeDriver();
+		  
 	  } else if (browser.equalsIgnoreCase("IE")){
-		 
+		  URL hubUrl = new URL("http://50.50.50.183:4444/wd/hub");
+		  
 		  dCaps = new DesiredCapabilities();
 		  dCaps.setJavascriptEnabled(true);
 		  dCaps.setBrowserName("iexplore");
 		  dCaps.setCapability("takesScreenshot", true);
 		  driver = new RemoteWebDriver(hubUrl, dCaps);
-		  
-		  
-		  
-	  } else if (browser.equalsIgnoreCase("ie")) {
-		  driver = new InternetExplorerDriver();
+	  
 	  } else if (browser.equalsIgnoreCase("phantomjs")) {
-		  
-		  
 		  dCaps = new DesiredCapabilities();
 		  dCaps.setJavascriptEnabled(true);
 		  dCaps.setCapability("takesScreenshot", false);
 		  System.setProperty("phantomjs.binary.path","/home/sarma/Downloads/phantomjs-1.9.7-linux-x86_64/bin/phantomjs");
 		  driver = new PhantomJSDriver(dCaps);
 		  
-	  } else { driver = new FirefoxDriver();  }
+	  } else if (browser.equalsIgnoreCase("firefox")){
+	  driver = new FirefoxDriver();}
+	  
 	  
 	  driver.get(baseurl);
 	  driver.manage().window().maximize();
@@ -81,10 +78,9 @@ public class BrowserHelper {
 	  driver.findElement(By.xpath("//input[@id='signin-email']")).sendKeys("gopi.ror@live.com");
 	  driver.findElement(By.xpath("//input[@id='signin-password']")).sendKeys("(kodanda&rama");
 	  driver.findElement(By.xpath("//button[contains(@class, 'submit btn primary-btn')]")).click();
+	  }
 	  
-  }
-
-  //@AfterMethod
+  @AfterMethod
   public void teardown() {
 	  if (driver != null)
       {
